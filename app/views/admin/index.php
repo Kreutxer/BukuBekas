@@ -19,5 +19,4 @@ if (!empty($_SESSION)) {
 
 <div class="container d-flex" align="center" style="justify-content: center; margin-top: 40vh;">
 	<h1>Selamat Datang Admin</h1>
-	<h1>aku ganteng</h1>
 </div>
