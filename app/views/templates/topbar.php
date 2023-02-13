@@ -40,6 +40,15 @@
 <nav class="navbar navbar-light bg-light static-top">
 	<div class="container">
 		<a class="navbar-brand <?=($data['title'] === "Home") ? "active" : "" ?>" href="<?= BASEURL; ?>">BukuBekas</a>
+		<form action="" class="form-inline">
+			<!-- <a href="$" onclick="topFunction()" class="btn " style="text-decoration: none;">About</a> -->
+			<button onclick="winScroll()"> About </button>
+			
+
+		</form>
+
+		
+
 		<form action="" class="form-inline" style="<?php if (!empty($_SESSION)) { echo 'display:none;'; } ?>">
 			<a class="btn btn-light border-primary rounded-pill">Sign Up</a>
 			<a class="btn btn-primary rounded-pill" href="<?= BASEURL; ?>/user/login"
