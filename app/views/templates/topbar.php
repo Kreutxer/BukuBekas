@@ -25,12 +25,12 @@
 	  } ?>">
 	  <button class="btn d-flex" data-bs-toggle="modal" data-bs-target="#modal-profil" id="profil">
 		  <?php if (!empty($_SESSION)) { ?>
-			  <p style="color: white; margin-top: 0.6vh; margin-right: 1vw;"><?= $_SESSION['nama']; ?></p>
+				  <p style="color: white; margin-top: 0.6vh; margin-right: 1vw;"><?= $_SESSION['nama']; ?></p>
 
-			<a href="#">
-			  <img src="<?= BASEURL; ?>/img/profile.png" alt=""
-			  style="width: 2vw; margin-right: 6vw;">
-			  </a>
+				<a href="#">
+				  <img src="<?= BASEURL; ?>/img/profile.png" alt=""
+				  style="width: 2vw; margin-right: 6vw;">
+				  </a>
 			<?php } ?>
 	  </button>
 	  </div>
@@ -41,37 +41,27 @@
 	<div class="container">
 		<a class="navbar-brand <?=($data['title'] === "Home") ? "active" : "" ?>" href="<?= BASEURL; ?>">BukuBekas</a>
 		<form action="" class="form-inline">
-			
+
 
 		</form>
 
-		
 
-		<form action="" class="form-inline" style="<?php if (!empty($_SESSION)) { echo 'display:none;'; } ?>">
-			<a class="btn btn-light border-primary rounded-pill">Sign Up</a>
+
+		<form action="" class="form-inline" style="<?php if (!empty($_SESSION)) {
+			echo 'display:none;';
+		} ?>">
 			<a class="btn btn-primary rounded-pill" href="<?= BASEURL; ?>/user/login"
 				style="text-decoration: none;">Sign In</a>
 		</form>
+		<a href="">
+			
+		</a>
 	</div>
-	<div class="profil d-flex" style="justify-content: center; 
-	  <?php if (empty($_SESSION)) {
-		  echo 'display:none;';
-	  } ?>">
-	  <button class="btn d-flex" data-bs-toggle="modal" data-bs-target="#modal-profil" id="profil">
-		  <?php if (!empty($_SESSION)) { ?>
-			  <p style="color: white; margin-top: 0.6vh; margin-right: 1vw;"><?= $_SESSION['nama']; ?></p>
 
-			<a href="#">
-			  <img src="<?= BASEURL; ?>/img/profile.png" alt=""
-			  style="width: 2vw; margin-right: 6vw;">
-			  </a>
-			<?php } ?>
-	  </button>
-	  </div>
 </nav>
 
 <!-- Modal Box profil -->
-<div class="modal modal-xl" tabindex="-1" id="modal-profil">
+<div class="modal" tabindex="-1" id="modal-profil">
 	<div class="modal-dialog modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header" style="display: none;">
@@ -111,7 +101,7 @@
 					</a>
 				</div>
 				<div class="modal-header d-flex justify-content-center">
-					<img src="<?= BASEURL; ?>/img/profile.png" alt="" id="cover" align="center" style="width: 10vw;">
+					<img src="<?= BASEURL; ?>/img/profile.png" alt="" id="cover" align="center" style="width: 5vw;">
 				</div>
 				<br><br><br>
 				<form action="<?= BASEURL; ?>/user/ubah" method="post">
@@ -165,16 +155,16 @@
 		if (idBF === idB) {
 			$('.modal-footer #favorite').hide();
 		}
-		$('.modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+i     d B);
+		$('.modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+i       d B);
 		$('.modal-body #id-buku').val(idB);
 		$('.modal-body #id-user').val(idU);
 		$('.modal-body #penjual a h4').text(nama);
-		$('.modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+i     d U);
+		$('.modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+i       d U);
 		$('.modal-body #judul').val(judul);
 		$('.modal-body #harga').val('Rp.' + harga);
 		$('.modal-body #judul').val(judul);
 		$('.modal-body #deskripsi').val(deskripsi);
-		$('.modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+c     o ver);
+		$('.modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+c       o ver);
 		$('.modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62' + no);
 	});
 

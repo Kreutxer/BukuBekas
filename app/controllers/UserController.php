@@ -55,7 +55,7 @@ class UserController extends Controller{
 		}
 		if (!empty($_SESSION)) {
 		    echo "<script>alert('Sudah Login !');
-		    window.location.href = '".BASEURL."/Books';</script>";
+		    window.location.href = '".BASEURL."/Home';</script>";
 		}
 		
 	}

@@ -43,13 +43,15 @@ class User{
 				return 1;
 			}else{
 				echo "<script>alert('password salah Bro')</script>"; // ubah pake pop up bootstrap jika berkenan
+				echo "<script>window.location.href = '".BASEURL."/';</script>";
 			}
 
 		}else{
 			echo "<script>alert('username salah Bro')</script>";
+			echo "<script>window.location.href = '".BASEURL."/';</script>";
 			return 212;
 		}
-		header("Location: ".BASEURL."/Books");
+		
 	}
 
 	public function logout(){
