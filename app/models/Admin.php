@@ -20,7 +20,7 @@ class Admin extends User{
 
 	public function ubahUser()
 	{
-
+		return 1;
 	}
 
 	public function ubahBuku()
