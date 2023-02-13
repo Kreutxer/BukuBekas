@@ -53,9 +53,14 @@
 			<a class="btn btn-primary rounded-pill" href="<?= BASEURL; ?>/user/login"
 				style="text-decoration: none;">Sign In</a>
 		</form>
-		<a href="">
-			
-		</a>
+
+	<?php if (!empty($_SESSION)) { ?>
+		<div class="profil">
+			<a href="<?= BASEURL; ?>/user/detail" style="text-decoration: none; color: black;">
+				<b><?= $_SESSION['nama']; ?></b>		
+			</a>
+		</div>
+	<?php } ?>
 	</div>
 
 </nav>

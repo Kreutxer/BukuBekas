@@ -87,6 +87,22 @@ class UserController extends Controller{
 		
 	} 
 
+	public function detail()
+	{
+		
+		$data['title'] = 'User Detail';
+		$this->view('templates/header', $data);
+		$data['user'] = 0;
+		if (!empty($_SESSION)) {
+			$idU = $_SESSION['id_user'];
+			$user = $this->model('User')->cariById($idU);
+			$data['user'] = $user;
+		}
+		$this->view('templates/topbar', $data);
+		$this->view('user/detail', $data);
+
+	}
+
 	public function logout(){
 		$this->model('User')->logout();
 		header("Location: ".BASEURL."/Home");

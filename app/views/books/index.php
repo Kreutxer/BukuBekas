@@ -32,7 +32,7 @@
 	<div class="card d-flex flex-row flex-wrap justify-content-center" style="margin-bottom: 100px; width: 70vw;" >
 		<?php $id_bf = 0; ?>
 		<?php foreach ($data['buku'] as $b): ?>
-			<div class="card" align="left" 
+			<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" align="left" 
 			style="width: 18rem; margin-left: 1vw;">
 				<ul class="list-group">
 					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="">
