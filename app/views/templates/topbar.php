@@ -41,8 +41,6 @@
 	<div class="container">
 		<a class="navbar-brand <?=($data['title'] === "Home") ? "active" : "" ?>" href="<?= BASEURL; ?>">BukuBekas</a>
 		<form action="" class="form-inline">
-			<!-- <a href="$" onclick="topFunction()" class="btn " style="text-decoration: none;">About</a> -->
-			<button onclick="winScroll()"> About </button>
 			
 
 		</form>
