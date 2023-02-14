@@ -1,40 +1,5 @@
 <!-- profil -->
 
-<!-- navbar  -->
-<!-- <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
-	  <div class="container">
-		<a class="navbar-brand" href="#">Buku Bekas</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-		  <ul class="navbar-nav">
-			<li class="nav-item">
-			  <a class="nav-link <?=($data['title'] === "Home") ? "active" : "" ?>" href="<?= BASEURL; ?>">Home</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link <?=($data['title'] === "Buku") ? "active" : "" ?>" href="<?= BASEURL; ?>/Books">Books</a>
-			</li>
-		  </ul>
-		</div>
-		
-	  </div>
-	  <div class="profil d-flex" style="justify-content: center; 
-	  <?php if (empty($_SESSION)) {
-		  echo 'display:none;';
-	  } ?>">
-	  <button class="btn d-flex" data-bs-toggle="modal" data-bs-target="#modal-profil" id="profil">
-		  <?php if (!empty($_SESSION)) { ?>
-					  <p style="color: white; margin-top: 0.6vh; margin-right: 1vw;"><?= $_SESSION['nama']; ?></p>
-
-					<a href="#">
-					  <img src="<?= BASEURL; ?>/img/profile.png" alt=""
-					  style="width: 2vw; margin-right: 6vw;">
-					  </a>
-			<?php } ?>
-	  </button>
-	  </div>
-  </nav> -->
 
 <!-- navbar baru -->
 <nav class="navbar navbar-light bg-light static-top">

@@ -10,7 +10,8 @@
 		<?php foreach ($data['buku'] as $b): ?>
 			<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded">
 				<ul class="list-group">
-					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="">
+					<!-- <img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="" style="max-width: 100px; max-height: 100px;"> -->
+					
 					<p class="list-group"><b>Judul : </b>
 						<?= $b['judul']; ?>
 					</p>
