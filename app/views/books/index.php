@@ -4,7 +4,11 @@
 			<?php foreach ($data['buku'] as $b): ?>
 				<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" style="width: 15vw; margin-left: 1vw;">
 					<ul class="list-group">
-						<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="">
+						<div class="cover" 
+							style="background-image:url('<?= BASEURL; ?>/img/<?= $b['cover']; ?>');
+							background-size: cover; width: 14vw; height: 200px;">
+						</div>
+						
 						<p class="list-group"><b>Judul : </b>
 							<?= $b['judul']; ?>
 						</p>
