@@ -1,7 +1,7 @@
 
 <div class="container">
 
-<div class="card d-flex flex-row flex-wrap justify-content-center" style="margin-bottom: 100px; width: 70vw;" >
+<div class="card d-flex flex-row flex-wrap justify-content-center" style="margin-bottom: 100px;" >
 		<?php $id_bf = 0; ?>
 		<?php foreach ($data['buku'] as $b) : ?>
 		
