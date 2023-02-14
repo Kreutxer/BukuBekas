@@ -40,7 +40,7 @@ class UserController extends Controller{
 		$data['title'] = 'Login';
 		$this->view('templates/header', $data);
 		$this->view('templates/topbar', $data);
-		$this->view('user/login');
+		
 		if (isset($_POST['login'])) {
 			 // var_dump($_POST);
 			 // die();
@@ -53,6 +53,7 @@ class UserController extends Controller{
 			  }
 			  // echo "<script>window.location.href = '".BASEURL."/Books';</script>";
 		}
+		$this->view('user/login');
 		if (!empty($_SESSION)) {
 		    echo "<script>alert('Sudah Login !');
 		    window.location.href = '".BASEURL."/Books';</script>";
@@ -68,6 +69,9 @@ class UserController extends Controller{
 			$data['favorit'] = $this->model('Buku')->getFavorite($data['id-user']);
 			$data['user'] = $this->model('User')->cariById($data['id-user']);
 			$data['buku'] = $this->model('Buku')->getBukuByAuthor($data['id-user']);
+		}else{
+			echo "<script>alert('Login Terlebih Dahulu');
+				window.location.href = '".BASEURL."/books';</script>";
 		}
 		$this->view('templates/topbar', $data);
 		$this->view('user/books',$data);
@@ -82,7 +86,7 @@ class UserController extends Controller{
 			exit;
 		}else{
 			echo "<script>alert('Tidak Ada Perubahan Data');
-			window.location.href = '".BASEURL."/user/Books';</script>";
+			window.location.href = '".BASEURL."/admin/users';</script>";
 		}
 		
 	} 

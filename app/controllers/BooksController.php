@@ -7,6 +7,7 @@ class BooksController extends Controller
 	{
 		$data['title'] = 'Buku';
 		$this->view('templates/header', $data);
+
 		$data['buku'] = $this->model('Buku')->getAllBuku();
 		$data['favorit'] = $this->model('Buku')->getFavorite(0);
 		if (!empty($_SESSION)) { // disimpan disini karna sessio_start ada di header 
@@ -42,10 +43,17 @@ class BooksController extends Controller
 
 	public function cari() // berdasarkan params yang dikirimkan di app.php kemudian di urutkan = $nama parameter ke 1 dst
 	{
-		// var_dump($_POST);
 		$data['title'] = 'Buku';
-
 		$this->view('templates/header', $data);
+
+		$data['buku'] = $this->model('Buku')->getAllBuku();
+		if (isset($_POST['search'])) {
+			if ($_POST['keyword'] !== '') {
+				$data['buku'] = $this->model('Buku')->cariBuku($_POST['keyword']);
+			}
+		}
+			
+		$data['favorit'] = $this->model('Buku')->getFavorite(0);
 		if (!empty($_SESSION)) { // disimpan disini karna sessio_start ada di header 
 			$data['id-user'] = $_SESSION['id_user'];
 			$data['favorit'] = $this->model('Buku')->getFavorite($data['id-user']);
@@ -53,11 +61,7 @@ class BooksController extends Controller
 		}
 		$this->view('templates/topbar', $data);
 		$this->view('templates/search-bar');
-		if (!empty($_POST['keyword'])) {
-			$data['buku'] = $this->model('Buku')->cariBuku($_POST['keyword']);
-		}else{
-			$data['buku'] = $this->model('Buku')->getAllBuku();
-		}
+		// var_dump($data['user']);
 		$this->view('books/index', $data);
 		$this->view('templates/footer');
 	}
@@ -75,8 +79,8 @@ class BooksController extends Controller
 		$this->view('templates/topbar', $data);
 
 		if ($this->model('Buku')->tambahFavorite($data) > 0) {
-			echo "<script>alert('Berhasil Menambahkan Buku Ke Favorit');
-			window.location.href = '".BASEURL."/Books/favoritemu';</script>";
+			Alert::setParams('Berhasil', 'tambah', 'favorit', 'success');
+			echo "<script>window.location.href = '".BASEURL."/Books/favoritemu';</script>";
 			exit;		
 		} else{
 			echo "<script>alert('Gagal Menambahkan Buku Ke Favorit');

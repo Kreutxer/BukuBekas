@@ -124,7 +124,7 @@
 </div>
 
 <script>
-	$(document).on("click", "#detail", function () {
+	$(document).on("click", "#detail", function(){
 		$('.modal-footer #favorite').show();
 		const idB = $(this).data('idbuku');
 		const idU = $(this).data('iduser');
@@ -142,18 +142,18 @@
 		if (idBF === idB) {
 			$('.modal-footer #favorite').hide();
 		}
-		$('.modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+i d B);
+		$('.modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+idB);
 		$('.modal-body #id-buku').val(idB);
 		$('.modal-body #id-user').val(idU);
 		$('.modal-body #penjual a h4').text(nama);
-		$('.modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+i d U);
+		$('.modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+idU);
 		$('.modal-body #judul').val(judul);
-		$('.modal-body #harga').val('Rp.' + harga);
+		$('.modal-body #harga').val('Rp.'+harga);
 		$('.modal-body #judul').val(judul);
 		$('.modal-body #deskripsi').val(deskripsi);
-		$('.modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+c o ver);
-		$('.modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62' + no);
+		$('.modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+cover);
+		$('.modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no);
 	});
 
-
+	
 </script>

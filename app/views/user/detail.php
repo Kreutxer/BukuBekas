@@ -1,3 +1,6 @@
+<div class="container logout text-decoration-none" align="right">
+	<a href="<?= BASEURL; ?>/user/logout">Log Out</a>
+</div>
 <div class="container shadow-sm p-3 mb-4 bg-white rounded mt-4" style="width: 800px;">
 	<!-- <?php var_dump($data['user']); ?> -->
 	<p style="font-size: 30px;">Biodata</p>
