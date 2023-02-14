@@ -8,17 +8,17 @@
 
 
 	<!-- Button trigger modal Tambah -->
-	<div class="tombol-tambah" align="left" <?php if (isset($_SESSION['login'])) { ?> 	<?=(empty($_SESSION)) ? "style='display: none;'" : "" ?> <?php
+	<!-- <div class="tombol-tambah" align="left" <?php if (isset($_SESSION['login'])) { ?> 	<?=(empty($_SESSION)) ? "style='display: none;'" : "" ?> <?php
 	} else if (empty($_SESSION)) {
 		echo "style='display: none;'";
 	} ?>>
 		<button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#modal-tambah">
 			Upload Buku
 		</button>
-	</div>
+	</div> -->
 
 	<!-- button untuk menuju ke halaman buku favorite user -->
-	<div align="right" <?php if (isset($_SESSION['login'])) { ?> 	<?=($_SESSION["level"] === 'admin' && empty($_SESSION)) ? "style='display: none;'" : "" ?> <?php
+	<!-- <div align="right" <?php if (isset($_SESSION['login'])) { ?> 	<?=($_SESSION["level"] === 'admin' && empty($_SESSION)) ? "style='display: none;'" : "" ?> <?php
 	} else if (empty($_SESSION)) {
 		echo "style='display: none;'";
 	} ?>>
@@ -27,18 +27,18 @@
 				Buku FavoriteMu
 			</button>
 		</a>
-	</div>
+	</div> -->
 
-	<div class="card d-flex flex-row flex-wrap justify-content-center" style="margin-bottom: 100px; width: 70vw;" >
+	<div class="d-flex flex-row flex-wrap justify-content-center mt-5" style="margin-bottom: 100px; width: 70vw;" >
 		<?php $id_bf = 0; ?>
 		<?php foreach ($data['buku'] as $b): ?>
 			<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" align="left" 
-			style="width: 18rem; margin-left: 1vw;">
+			style="width: 15rem; margin-left: 1vw;">
 				<ul class="list-group">
-					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="">
-					<p class="list-group"><b>Judul : </b><?= $b['judul']; ?></p>
-					<p class="list-group"><b>Harga : </b>Rp.<?= $b['harga']; ?></p>
-					<p class="list-group" style=""><b> Deskripsi : </b><?= substr($b['deskripsi'], 0, 8); ?> ...</p>
+					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="" style="width: 220px; height: 220px;">
+					<p class="list-group" style="font-size: 28px;"> <?= $b['judul']; ?></p>
+					<p class="list-group"><b>Rp<?= $b['harga']; ?></b></p>
+					<p class="list-group" style=""><?= substr($b['deskripsi'], 0, 8); ?> ...</p>
 					<br>
 				</ul>
 
