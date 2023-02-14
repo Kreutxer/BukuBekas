@@ -35,7 +35,7 @@
 			<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" align="left" 
 			style="width: 15rem; margin-left: 1vw;">
 				<ul class="list-group">
-					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="" style="width: 220px; height: 220px;">
+					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="" class="rounded">
 					<p class="list-group" style="font-size: 28px;"> <?= $b['judul']; ?></p>
 					<p class="list-group"><b>Rp<?= $b['harga']; ?></b></p>
 					<p class="list-group" style=""><?= substr($b['deskripsi'], 0, 8); ?> ...</p>
