@@ -94,7 +94,6 @@
       </div>
       <form action="<?= BASEURL; ?>/books/tambah" method="post" enctype="multipart/form-data">
        <div class="modal-body">
-        <h3>Buku Aldi</h3> <!-- ganti dengan nama usernya -->
         <input type="hidden" class="form-control" id="id-user" value="<?= $_SESSION['id_user']; ?>" name="id">
         <div class="col-md-6">
 	    	<label for="judul" class="form-label">Judul</label>
