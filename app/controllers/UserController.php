@@ -4,14 +4,10 @@ class UserController extends Controller{
 
 	public function index(){
 		$data['title'] = 'User';
-		$data['user'] = 0;
-		if (!empty($_SESSION)) {
-			$idU = $_SESSION['id-user'];
-			$user = $this->model('User')->cariById($idU);
-			$data['user'] = $user;
-		}
+		$data['user'] = $this->model('User')->getAllUsers();
 		$this->view('templates/header', $data);
 		$this->view('templates/topbar', $data);
+		$this->view('user/index', $data);
 	}
 
 	public function register()
@@ -82,11 +78,11 @@ class UserController extends Controller{
 		$this->view('templates/header', $data);
 		if ($this->model('IntegratedUser')->ubah($_POST) > 0) {
 			echo "<script>alert('Berhasil Ubah Data User');
-			window.location.href = '".BASEURL."/user/Books';</script>";
+			window.location.href = '".BASEURL."/user/detail';</script>";
 			exit;
 		}else{
 			echo "<script>alert('Tidak Ada Perubahan Data');
-			window.location.href = '".BASEURL."/admin/users';</script>";
+			window.location.href = '".BASEURL."/user/detail';</script>";
 		}
 		
 	} 

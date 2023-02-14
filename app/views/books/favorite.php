@@ -91,7 +91,7 @@
 </div>
 
 <script>
-	$(document).on("click", "#detail", function () {
+	$(document).on("click", "#detail", function(){
 		$('.modal-footer #favorite').show();
 		const idB = $(this).data('idbuku');
 		const idU = $(this).data('iduser');
@@ -103,23 +103,20 @@
 		const nama = $(this).data('nama');
 		const favorite = $(this).data('favorite');
 
-		const idBF = $(this).data('bukufav');
-
-		console.log(idBF);
-		if (idBF === idB) {
-			$('.modal-footer #favorite').hide();
-		}
-		$('.modal-detail .modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+i d B);
-		$('.modal-detail .modal-body #id-buku').val(idB);
-		$('.modal-detail .modal-body #id-user').val(idU);
-		$('.modal-detail .modal-body #penjual a h4').text(nama);
-		$('.modal-detail .modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+i d U);
-		$('.modal-detail .modal-body #judul').val(judul);
-		$('.modal-detail .modal-body #harga').val('Rp.' + harga);
-		$('.modal-detail .modal-body #judul').val(judul);
-		$('.modal-detail .modal-body #deskripsi').val(deskripsi);
-		$('.modal-detail .modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+c o ver);
-		$('.modal-detail .modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62' + no);
+		console.log(idB);
+		
+		$('.modal-body #id-buku').val(idB);
+		$('.modal-body #id-user').val(idU);
+		$('.modal-body #penjual a h4').text(nama);
+		$('.modal-body #penjual a').attr("href", '/books/author/'+idU);
+		$('.modal-body #judul').val(judul);
+		$('.modal-body #harga').val('Rp.'+harga);
+		$('.modal-body #judul').val(judul);
+		$('.modal-body #deskripsi').val(deskripsi);
+		$('.modal-body #cover').attr("src", '<?= BASEURL;  ?>/img/'+cover);
+		$('.modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no);
+		$('.modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+idB);
+		$('.modal-footer #hapus-fav a').attr('href', '<?= BASEURL; ?>/Books/hapusFavorite/'+idB);
 	});
 
 

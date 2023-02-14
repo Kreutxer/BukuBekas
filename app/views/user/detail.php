@@ -1,36 +1,53 @@
-<div class="container logout text-decoration-none" align="right">
-	<a href="<?= BASEURL; ?>/user/logout">Log Out</a>
-	<a href="<?= BASEURL; ?>/books/favoritemu">Buku Favoritmu</a>
+<div class="container text-decoration-none" align="right">
+	<div class="logout">
+		<a href="<?= BASEURL; ?>/user/logout">Log Out</a>
+	</div>
+	
+	<div class="buku-favorit" align="left"> 
+		<a href="<?= BASEURL; ?>/books/favoritemu">Buku Favoritmu</a>
+	</div>
+	
+	<div class="upload-buku">
+		<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-upload">Upload Buku</button>
+	</div>
 </div>
 <div class="container shadow-sm p-3 mb-4 bg-white rounded mt-4" style="width: 800px;">
 	<!-- <?php var_dump($data['user']); ?> -->
-	<p style="font-size: 30px;">Biodata</p>
-	<form>
+	<p style="font-size: 30px;">Biodata Anda</p>
+	<form action="<?= BASEURL; ?>/user/ubah" method="post">
+		<input type="hidden" value="<?= $data['user']['id_user']; ?>" name="id_user">
 		<div class="form-group row mt-1">
-			<label for="staticEmail" class="col-sm-2 col-form-label">Nama</label>
+			<label for="staticEmail" class="col-sm-2 col-form-label">Nama Lengkap</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="nama" value="Nama User">
+				<input type="text" class="form-control" id="nama" value="<?= $data['user']['nama']; ?>" name="nama">
+			</div>
+		</div>
+		<div class="form-group row mt-1">
+			<label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="nama" value="<?= $data['user']['username']; ?>" name="username">
 			</div>
 		</div>
 		<div class="form-group row mt-1">
 			<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 			<div class="col-sm-10">
-				<input type="password" class="form-control" id="inputPassword" value="Password">
+				<input type="password" class="form-control" id="inputPassword" value="<?= $data['user']['password']; ?>" name="password">
 			</div>
 		</div>
 		<div class="form-group row mt-1">
 			<label for="inputPassword" class="col-sm-2 col-form-label">No. Telp.</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="inputPassword" placeholder="Password">
+				<input type="number" class="form-control" id="inputPassword" value="<?= $data['user']['no_telp'] ?>" name="no">
 			</div>
 		</div>
+		<div class="d-flex flex-row-reverse mt-2">
+			<button class="btn btn-primary" type="submit">Ubah</button>
+		</div>
 	</form>
-	<div class="d-flex flex-row-reverse mt-2">
-		<button class="btn btn-primary">Simpan</button>
-	</div>
+	
 </div>
 <hr>
-<div class="container shadow-sm p-3 mb-4 bg-white rounded mt-4" style="width: 800px;">
+<!-- <div class="container shadow-sm p-3 mb-4 bg-white rounded mt-4" style="width: 800px;">
 	<p style="font-size: 30px;">Buku</p>
 	<form>
 		<div class="form-group row mt-1">
@@ -61,9 +78,45 @@
 		<button class="btn btn-success m-2" style="width: 760px;">Etalase Buku Anda</button>
 	</a>
 	<a href="">
-		<button class="btn btn-secondary m-2" style="width: 760px;">Kembali</button>
+		<button class="btn btn-danger m-2" style="width: 760px;">Back</button>
 	</a>
-	<a href="">
-		<button class="btn btn-danger m-2" style="width: 760px;">Log Out</button>
-	</a>
+</div> -->
+
+<!-- Modal Box Upload Buku -->
+<div class="modal modal-lg" tabindex="-1" id="modal-upload">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Upload Buku</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="<?= BASEURL; ?>/books/tambah" method="post" enctype="multipart/form-data">
+       <div class="modal-body">
+        <h3>Buku Aldi</h3> <!-- ganti dengan nama usernya -->
+        <input type="hidden" class="form-control" id="id-user" value="<?= $_SESSION['id_user']; ?>" name="id">
+        <div class="col-md-6">
+	    	<label for="judul" class="form-label">Judul</label>
+	    	<input type="text" class="form-control" id="judul" name="judul" required>
+	    </div>
+	    <div class="col-md-6">
+	    	<label for="harga" class="form-label">Harga</label>
+	    	<input type="number" class="form-control" id="harga" name="harga" required>
+	    </div>
+	    <div class="mb-3">
+		  <label for="cover" class="form-label">Pilih Cover</label>
+		  <input class="form-control form-control-sm" id="formFileSm" type="file" name="gambar" required>
+		</div>
+	    <div class="form-floating">
+		  <textarea class="form-control" id="deskripsi" style="height: 100px" name="deskripsi" required></textarea>
+		  <label for="deskripsi">Deskripsi</label>
+		</div>
+
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Upload</button>
+       </div>
+      </form>
+    </div>
+  </div>
 </div>
