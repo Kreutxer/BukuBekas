@@ -75,6 +75,9 @@ class BooksController extends Controller
 			$data['id-user'] = $_SESSION['id_user'];
 			$data['favorit'] = $this->model('Buku')->getFavorite($data['id-user']);
 			$data['user'] = $this->model('User')->cariById($data['id-user']);
+		}else{
+			echo "<script>alert('Login Terlebih Dahulu');
+				window.location.href = '".BASEURL."/books';</script>";
 		}
 		$this->view('templates/topbar', $data);
 
@@ -96,6 +99,9 @@ class BooksController extends Controller
 			$data['id-user'] = $_SESSION['id_user'];
 			$data['buku'] = $this->model('Buku')->getFavorite($data['id-user']);
 			$data['user'] = $this->model('User')->cariById($data['id-user']);
+		}else{
+			echo "<script>alert('Login Terlebih Dahulu');
+				window.location.href = '".BASEURL."/books';</script>";
 		}
 		$this->view('templates/topbar', $data);
 		$this->view('books/favorite', $data);
@@ -113,7 +119,7 @@ class BooksController extends Controller
 			echo "<script>alert('Berhasil Hapus Buku Dari Favorit');
 			window.location.href = '".BASEURL."/Books/favoritemu';</script>";
 			exit;		
-		} else{
+		}else{
 			echo "<script>alert('Gagal Hapus Buku Dari Favorit');
 			window.location.href = '".BASEURL."/Books/favoritemu';</script>";
 		}
