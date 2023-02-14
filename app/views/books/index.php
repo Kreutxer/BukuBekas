@@ -15,7 +15,6 @@
 				<br>
 			</ul>
 
-
 			<p class="list-group small mb-1" align="left">
 					<a href="<?= BASEURL; ?>/books/author/<?= $b['id_user']; ?>" style="text-decoration: none;">
 						<?= $b['nama'];  ?>	

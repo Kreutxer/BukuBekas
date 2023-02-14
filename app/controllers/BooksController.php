@@ -116,8 +116,8 @@ class BooksController extends Controller
 		$data['id-user'] = $_SESSION['id_user'];
 		$data['id-buku'] = $idBuku;
 		if ($this->model('Buku')->hapusFavorite($data) > 0) {
-			echo "<script>alert('Berhasil Hapus Buku Dari Favorit');
-			window.location.href = '".BASEURL."/Books/favoritemu';</script>";
+			Alert::setParams('Berhasil', 'Hapus', 'Buku Dari Favorit', 'success');
+			echo "<script>window.location.href = '".BASEURL."/Books/favoritemu';</script>";
 			exit;		
 		}else{
 			echo "<script>alert('Gagal Hapus Buku Dari Favorit');
@@ -167,7 +167,7 @@ class BooksController extends Controller
 	public function tambah(){
 		if ($this->model('Buku')->tambahBuku($_POST) > 0) {
 			echo "<script>alert('Berhasil Tambah Data Buku');
-			window.location.href = '".BASEURL."/Books';</script>";
+			window.location.href = '".BASEURL."/user/books';</script>";
 			exit;
 		}else{
 			echo "<script>alert('Gagal Tambah Data Buku');

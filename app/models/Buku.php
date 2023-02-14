@@ -13,7 +13,7 @@ class Buku extends Model
 
 	public function getAllBuku()
 	{
-		$this->db->query('SELECT * FROM buku JOIN users using(id_user);');	
+		$this->db->query('SELECT * FROM buku JOIN users using(id_user) group by id_buku DESC;');	
 		return $this->db->resultSet();
 	}
 
