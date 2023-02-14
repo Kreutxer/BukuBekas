@@ -95,7 +95,6 @@
 											data-deskripsi="<?= $b['deskripsi']; ?>" data-cover="<?= $b['cover']; ?>"
 											data-nama="<?= $b['nama']; ?>" data-bukufav="<?= $id_bf; ?>">
 											Lihat Detail
-											<?php var_dump($b) ?>
 										</button>
 									</div>
 									<div class="d-flex flex-column mt-1">
@@ -108,7 +107,6 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
