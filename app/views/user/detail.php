@@ -57,6 +57,6 @@
 		<button class="btn btn-success m-2" style="width: 760px;">Etalase Buku Anda</button>
 	</a>
 	<a href="">
-		<button class="btn btn-danger m-2" style="width: 760px;">Kembali</button>
+		<button class="btn btn-danger m-2" style="width: 760px;">Back</button>
 	</a>
 </div>
