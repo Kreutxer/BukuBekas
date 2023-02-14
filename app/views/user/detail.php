@@ -32,6 +32,8 @@
 			<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 			<div class="col-sm-10">
 				<input type="password" class="form-control" id="inputPassword" value="<?= $data['user']['password']; ?>" name="password">
+				<!-- An element to toggle between password visibility -->
+				<input type="checkbox" onclick="myFunction()"> Tampilkan Password
 			</div>
 		</div>
 		<div class="form-group row mt-1">
@@ -92,7 +94,6 @@
       </div>
       <form action="<?= BASEURL; ?>/books/tambah" method="post" enctype="multipart/form-data">
        <div class="modal-body">
-        <h3>Buku Aldi</h3> <!-- ganti dengan nama usernya -->
         <input type="hidden" class="form-control" id="id-user" value="<?= $_SESSION['id_user']; ?>" name="id">
         <div class="col-md-6">
 	    	<label for="judul" class="form-label">Judul</label>
@@ -119,4 +120,14 @@
       </form>
     </div>
   </div>
+  <script>
+function myFunction() {
+  var x = document.getElementById("inputPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 </div>
