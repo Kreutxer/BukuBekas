@@ -44,9 +44,9 @@
 							data-nama="<?= $b['nama']; ?>" data-bukufav="<?= $id_bf; ?>">
 						</button>
 						<?php for ($i = 0; $i < count($data['favorit']); $i++) {
-							if ($data['favorit'][$i]['id_buku'] === $b['id_buku']) {
-								echo '*favoritmu';
-							}
+							if ($data['favorit'][$i]['id_buku'] === $b['id_buku']) { ?>
+								<img src="<?= BASEURL; ?>/img/heart.png" alt="" style="width: 1.7vw;">
+							<?php }
 						} ?>
 					</div>
 					<button type="button" class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modal-detail"
