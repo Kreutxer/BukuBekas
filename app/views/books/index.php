@@ -27,8 +27,8 @@
 						</a>
 					</p>
 					<div align="right" class="mb-1">
-						<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-							data-bs-target="#modal-detail" id="detail" style="width: 2.5vw; height: 3.5vh; background-image: url('<?= BASEURL ?>/img/fav.png');
+						<button type="button" class="btn btn-outline-danger border-0 rounded-circle" data-bs-toggle="modal"
+							data-bs-target="#modal-detail" id="detail" style="width: 2vw; height: 3.5vh; background-image: url('<?= BASEURL ?>/img/fav.png');
 								background-size: 1.5vw; background-repeat: no-repeat; background-position: center;
 								<?php if (!isset($_SESSION['login'])) {
 									echo 'display: none;';
@@ -38,14 +38,27 @@
 										$id_bf = $data['favorit'][$i]['id_buku'];
 										echo 'display: none;';
 									}
-								} ?>" data-idbuku="<?= $b['id_buku']; ?>" data-iduser="<?= $b['id_user']; ?>" data-judul="<?= $b['judul']; ?>"
+								} ?>" 
+							data-idbuku="<?= $b['id_buku']; ?>" data-iduser="<?= $b['id_user']; ?>" data-judul="<?= $b['judul']; ?>"
 							data-harga="<?= $b['harga']; ?>" data-no="<?= $b['no_telp']; ?>"
 							data-deskripsi="<?= $b['deskripsi']; ?>" data-cover="<?= $b['cover']; ?>"
 							data-nama="<?= $b['nama']; ?>" data-bukufav="<?= $id_bf; ?>">
 						</button>
 						<?php for ($i = 0; $i < count($data['favorit']); $i++) {
 							if ($data['favorit'][$i]['id_buku'] === $b['id_buku']) { ?>
-								<img src="<?= BASEURL; ?>/img/heart.png" alt="" style="width: 1.7vw;">
+								<div class="favoritmu">
+
+									<button class="btn-light border-0 rounded-circle bg-white" data-bs-toggle="modal"
+									data-bs-target="#modal-hapusfav" id="favorit"
+									data-idbuku="<?= $b['id_buku']; ?>" data-iduser="<?= $b['id_user']; ?>" 
+									data-judul="<?= $b['judul']; ?>"
+									data-harga="<?= $b['harga']; ?>" data-no="<?= $b['no_telp']; ?>"
+									data-deskripsi="<?= $b['deskripsi']; ?>" data-cover="<?= $b['cover']; ?>"
+									data-nama="<?= $b['nama']; ?>" data-bukufav="<?= $id_bf; ?>">
+										<img src="<?= BASEURL; ?>/img/heart.png" alt="" style="width: 1.7vw;">
+									</button>
+
+								</div>
 							<?php }
 						} ?>
 					</div>
@@ -155,16 +168,18 @@
 	</div>
 </div>
 
-<!-- Modal Box Favorite (TIDAK TERPAKAI) -->
-<div class="modal modal-xl" tabindex="-1" id="modal-favorite">
+<!-- Modal Box hapus fav -->
+<div class="modal modal" tabindex="-1" id="modal-hapusfav">
 	<div class="modal-dialog modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Tambah Buku Ke Favorite</h5>
+				<h5 class="modal-title">Buku Favoritmu</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<img src="" alt="" id="cover"><br><br><br>
+				<div class="container" style="width: 10vw;" align="center">
+					<img src="" alt="" id="cover" style="width: 10vw;" class="rounded"><br><br><br>
+				</div>
 				<div class="penjual" id="penjual">
 					<a href="" style="text-decoration: none;">
 						<h4></h4>
@@ -174,7 +189,7 @@
 				<input type="hidden" class="form-control" id="id-user" name="id-user">
 				<div class="input-group flex-nowrap mt-2 mb-2">
 					<span class="input-group-text" id="addon-wrapping">Judul : </span>
-					<input type="text" class="form-control" id="judul" name="judul" readonly>
+					<input type="text" class="form-control" id="judul" name="judul" placeholder="<?= $b['judul']; ?>" readonly>
 				</div>
 				<div class="input-group flex-nowrap mt-2 mb-2">
 					<span class="input-group-text" id="addon-wrapping">harga : </span>
@@ -182,15 +197,20 @@
 				</div>
 				<div>
 					<label for="deskripsi">Deskripsi :</label>
-					<textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 100px"
-						readonly></textarea>
-
+					<textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 100px"readonly></textarea>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				<button class="btn btn-light" id="no" style="background-color: rgb(37,211,102); ">
 					<a href="" style="color: white; text-decoration: none;" target="blank">Chat Ke WA</a>
+				</button>
+				<button class="btn btn-outline-danger " id="hapus-favorit"
+					style="<?php if (!isset($_SESSION['login'])) {
+						echo "display: none;";
+					} ?>">
+					<a href="" style="color:black; text-decoration: none; text-shadow: 1px 1px 1px 1px;"
+						target="blank">Hapus Dari Favorit</a>
 				</button>
 			</div>
 		</div>
@@ -218,17 +238,48 @@
 		if (idBF === idB) {
 			$('.modal-footer #favorite').hide();
 		}
-		$('.modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+idB);
-		$('.modal-body #id-buku').val(idB);
-		$('.modal-body #id-user').val(idU);
-		$('.modal-body #penjual a h4').text(nama);
-		$('.modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+idU);
-		$('.modal-body #judul').val(judul);
-		$('.modal-body #harga').val('Rp.'+harga);
-		$('.modal-body #judul').val(judul);
-		$('.modal-body #deskripsi').val(deskripsi);
-		$('.modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+cover);
-		$('.modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no);
+		$('#modal-detail .modal-footer #favorite a').attr('href', '<?= BASEURL; ?>/Books/favorite/'+idB);
+		$('#modal-detail .modal-body #id-buku').val(idB);
+		$('#modal-detail .modal-body #id-user').val(idU);
+		$('#modal-detail .modal-body #penjual a h4').text(nama);
+		$('#modal-detail .modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+idU);
+		$('#modal-detail .modal-body #judul').val(judul);
+		$('#modal-detail .modal-body #harga').val('Rp.'+harga);
+		$('#modal-detail .modal-body #judul').val(judul);
+		$('#modal-detail .modal-body #deskripsi').val(deskripsi);
+		$('#modal-detail .modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+cover);
+		$('#modal-detail .modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no);
 	});
 });
+
+	$(document).on("click", "#favorit", function(){
+		$('.modal-footer #favorite').show();
+		const idB = $(this).data('idbuku');
+		const idU = $(this).data('iduser');
+		const judul = $(this).data('judul');
+		const harga = $(this).data('harga');
+		const no = $(this).data('no').slice(1);
+		const deskripsi = $(this).data('deskripsi');
+		const cover = $(this).data('cover');
+		const nama = $(this).data('nama');
+		const favorite = $(this).data('favorite');
+
+		const idBF = $(this).data('bukufav');
+
+		console.log(idBF);
+		if (idBF === idB) {
+			$('.modal-footer #favorite').hide();
+		}
+		$('#modal-hapusfav .modal-footer #hapus-favorit a').attr('href', '<?= BASEURL; ?>/books/hapusFavorite/'+idB);
+		$('#modal-hapusfav .modal-body #id-buku').val(idB);
+		$('#modal-hapusfav .modal-body #id-user').val(idU);
+		$('#modal-hapusfav .modal-body #penjual a h4').text(nama);
+		$('#modal-hapusfav .modal-body #penjual a').attr("href", '<?= BASEURL; ?>/Books/author/'+idU);
+		$('#modal-hapusfav .modal-body #judul').val(judul);
+		$('#modal-hapusfav .modal-body #harga').val('Rp.'+harga);
+		$('#modal-hapusfav .modal-body #judul').val(judul);
+		$('#modal-hapusfav .modal-body #deskripsi').val(deskripsi);
+		$('#modal-hapusfav .modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+cover);
+		$('#modal-hapusfav .modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no);
+	});
 </script>

@@ -23,7 +23,10 @@
 		<?php foreach ($data['buku'] as $b): ?>
 			<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" style="width: 15vw; margin-left: 1vw;">
 				<ul class="list-group">
-					<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="">
+					<div class="cover" 
+						style="background-image:url('<?= BASEURL; ?>/img/<?= $b['cover']; ?>');
+						background-size: cover; width: 14vw; height: 200px;">
+					</div>
 					<p class="list-group"><b>Judul : </b>
 						<?= $b['judul']; ?>
 					</p>
@@ -42,8 +45,8 @@
 					</a>
 				</p>
 				<div align="right" class="mb-1">
-					<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-						data-bs-target="#modal-detail" id="detail" style="width: 2.5vw; height: 3.5vh; background-image: url('<?= BASEURL ?>/img/fav.png');
+					<button type="button" class="btn btn-outline-danger rounded-circle border-0" data-bs-toggle="modal"
+						data-bs-target="#modal-detail" id="detail" style="width: 2vw; height: 3.5vh; background-image: url('<?= BASEURL ?>/img/fav.png');
 						background-size: 1.5vw; background-repeat: no-repeat; background-position: center;
 						<?php if (!isset($_SESSION['login'])) {
 							echo 'display: none;';
