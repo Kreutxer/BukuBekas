@@ -3,9 +3,9 @@
 		<a href="<?= BASEURL; ?>/books/favoritemu">
 			<button class="btn btn-primary" style="width: 200px;">Buku Favoritmu</button>
 		</a>
-		<a href="<?= BASEURL; ?>/user/logout">
-		<button class="btn btn-danger" style="width: 200px;">Log Out
-	</button></a>
+		<a href="<?= BASEURL; ?>/user/logout" onclick="confirm('Log Out ?')">
+			<button class="btn btn-danger" style="width: 200px;">Log Out</button>
+		</a>
 	</div>
 
 	<div class="container d-flex justify-content-between">
