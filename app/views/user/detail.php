@@ -11,6 +11,11 @@
 	<div class="container d-flex justify-content-between">
 		<button class="btn btn-primary mt-1" style="width: 200px;" data-bs-toggle="modal"
 			data-bs-target="#modal-upload">Upload Buku</button>
+		<a href="<?= BASEURL; ?>/user/books">
+			<button class="btn btn-primary mt-1">
+				Lihat Bukumu
+			</button>
+		</a>
 	</div>
 </div>
 <div class="container shadow-sm p-3 mb-4 bg-white rounded mt-4" style="width: 800px;">

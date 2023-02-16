@@ -23,7 +23,10 @@
 		<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" 
 		style="width: 15vw; margin-left: 1vw;">
 			<ul class="list-group">
-				<img src="<?= BASEURL; ?>/img/<?= $b['cover']; ?>" alt="">
+				<div class="cover" 
+					style="background-image:url('<?= BASEURL; ?>/img/<?= $b['cover']; ?>');
+					background-size: cover; width: 14vw; height: 200px; background-repeat: no-repeat;">
+				</div>
 				<p class="list-group"><b>Judul : </b><?= $b['judul']; ?></p>
 				<p class="list-group"><b>Harga : </b>Rp.<?= $b['harga']; ?></p>
 				<p class="list-group" style=""><b> Deskripsi : </b><?= substr($b['deskripsi'], 0,8); ?> ...</p>
