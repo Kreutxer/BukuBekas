@@ -1,12 +1,12 @@
 <div class="container">
-		<div class="card d-flex flex-row flex-wrap justify-content-center" style="margin-bottom: 100px; width: 70vw;">
+		<div class="card d-flex flex-row flex-wrap justify-content-center" style="margin-bottom: 100px;">
 			<?php $id_bf = 0; ?>
 			<?php foreach ($data['buku'] as $b): ?>
-				<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded" style="width: 15vw; margin-left: 1vw;">
+				<div class="card mb-4 mt-4 shadow p-2 bg-body-tertiary rounded m-2" style="width: 15vw;">
 					<ul class="list-group">
 						<div class="cover" 
 							style="background-image:url('<?= BASEURL; ?>/img/<?= $b['cover']; ?>');
-							background-size: cover; width: 14vw; height: 200px;">
+							background-size: contain; background-repeat: no-repeat; width: 14vw; height: 200px;">
 						</div>
 						
 						<p class="list-group"><b>Judul : </b>
