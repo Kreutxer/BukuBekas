@@ -17,15 +17,24 @@ class Admin extends User{
 		return $this->db->rowCount();
 	}
 
-
+	// tiadk memakai method ini
 	public function ubahUser()
 	{
 		return 1;
 	}
 
-	public function ubahBuku()
+	public function tambahUser()
 	{
-
+		$query = "INSERT INTO users VALUES
+		('', :username, :nama, :pass, :no, :level)";
+		$this->db->query($query);
+		$this->db->bind('username', $_POST['username']);
+		$this->db->bind('nama', $_POST['nama']);
+		$this->db->bind('pass', $_POST['pass']);
+		$this->db->bind('no', $_POST['no']);
+		$this->db->bind('level', $_POST['level']);
+		$this->db->execute();
+		return $this->db->rowCount();
 	}
 
 

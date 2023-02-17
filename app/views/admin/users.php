@@ -12,6 +12,10 @@ if (!empty($_SESSION)) {
 	<link rel="stylesheet" href="<?= BASEURL; ?>/css/table.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-tambah">
+    Tambah User
+  </button>
+
   <div class="main-content">
     <div class="container mt-7">
       <!-- Table -->
@@ -32,6 +36,7 @@ if (!empty($_SESSION)) {
                     <th scope="col">Nama Lengkap</th>
                     <th scope="col">Username</th>
                     <th scope="col">No Telp</th>
+                    <th scope="col">Level</th>
                     <th scope="col" style="width: 5vw; padding-left: 80px;">Action</th>
                   </tr>
                 </thead>
@@ -60,6 +65,11 @@ if (!empty($_SESSION)) {
                         <p><?= $data['users'][$i]['no_telp']; ?></p>
                       </div>
                     </td>
+                    <td>
+                      <div class="media align-items-center">
+                        <p><?= $data['users'][$i]['level']; ?></p>
+                      </div>
+                    </td>
         			
                     <td class="text-right">
                       <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-ubah" id="ubah"
@@ -67,7 +77,8 @@ if (!empty($_SESSION)) {
                       data-nama="<?= $data['users'][$i]['nama']; ?>"
                       data-username="<?= $data['users'][$i]['username']; ?>"
                       data-no="<?= $data['users'][$i]['no_telp']; ?>"
-                      data-pass="<?= $data['users'][$i]['password']; ?>">Ubah</button>
+                      data-pass="<?= $data['users'][$i]['password']; ?>"
+                      data-level="<?= $data['users'][$i]['level']; ?>">Ubah</button>
                       <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-hapus" id="hapus"
                       data-iduser="<?= $data['users'][$i]['id_user']; ?>"
                       data-nama="<?= $data['users'][$i]['nama']; ?>"
@@ -117,6 +128,13 @@ if (!empty($_SESSION)) {
 		  	<span class="input-group-text" id="addon-wrapping">No Telepon </span>
 		  	<input type="text" class="form-control" id="no" name="no" required>
 		</div> 	
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="level">Level :</label>
+      <select class="form-select" id="level" name="level">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+      </select>
+    </div> 
       </div>
 
       <div class="modal-footer">
@@ -168,20 +186,67 @@ if (!empty($_SESSION)) {
   </div>
 </div>
 
+<!-- Modal Box Tmabh -->
+<div class="modal modal" tabindex="-1" id="modal-tambah">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <form action="<?= BASEURL; ?>/admin/tambahUser" method="post">
+    <div class="input-group flex-nowrap mt-2 mb-2">
+        <span class="input-group-text" id="addon-wrapping">Nama Lengkap </span>
+        <input type="text" class="form-control" id="nama" name="nama" required>
+    </div>
+    <div class="input-group flex-nowrap mt-2 mb-2">
+        <span class="input-group-text" id="addon-wrapping">Username </span>
+        <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+    <div class="input-group flex-nowrap mt-2 mb-2">
+        <span class="input-group-text" id="addon-wrapping">Password </span>
+        <input type="text" class="form-control" id="pass" name="pass" required>
+    </div>
+    <div class="input-group flex-nowrap mt-2 mb-2">
+        <span class="input-group-text" id="addon-wrapping">No Telepon </span>
+        <input type="text" class="form-control" id="no" name="no" required>
+    </div>  
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="level">Level :</label>
+      <select class="form-select" id="level" name="level">
+          <option value="admin">Admin</option>
+          <option value="user" selected>User</option>
+      </select>
+    </div> 
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="tambah">tambah
+      </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
 	$(document).on("click", "#ubah", function(){
 		const iduser = $(this).data('iduser');
 		const nama = $(this).data('nama');
 		const username = $(this).data('username');
 		const pass = $(this).data('pass');
-		const no = $(this).data('no');
+    const no = $(this).data('no');
+		const level = $(this).data('level');
 	
 		
-		$('.modal-body #id-user').val(iduser);
-		$('.modal-body #nama').val(nama);
-		$('.modal-body #username').val(username);
-		$('.modal-body #password').val(pass);
-		$('.modal-body #no').val(no);
+		$('#modal-ubah .modal-body #id-user').val(iduser);
+    $('#modal-ubah .modal-body #level').val(level);
+		$('#modal-ubah .modal-body #nama').val(nama);
+		$('#modal-ubah .modal-body #username').val(username);
+		$('#modal-ubah .modal-body #password').val(pass);
+		$('#modal-ubah .modal-body #no').val(no);
 		
 	});
 

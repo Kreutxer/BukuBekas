@@ -13,12 +13,14 @@ class User{
 	public function register()
 	{
 		$query = "INSERT INTO users VALUES
-		('', :username, :nama, :pass, :no)";
+		('', :username, :nama, :pass, :no, :level)";
+		$users = $this->getAllUsers();
 		$this->db->query($query);
 		$this->db->bind('username', $_POST['username']);
 		$this->db->bind('nama', $_POST['nama']);
 		$this->db->bind('pass', $_POST['pass']);
 		$this->db->bind('no', $_POST['no']);
+		$this->db->bind('level', 'user');
 		$this->db->execute();
 		return $this->db->rowCount();
 	}
@@ -35,11 +37,7 @@ class User{
 				$_SESSION['username'] = $users[0]['username'];
 				$_SESSION['nama'] = $users[0]['nama'];
 				$_SESSION['id_user'] = $users[0]['id_user'];
-				if ($users[0]['id_user'] === 1) {
-					$_SESSION['level'] = 'admin';
-				}else{
-					$_SESSION['level'] = 'user';
-				}
+				$_SESSION['level'] = $users[0]['level'];
 				return 1;
 			}else{
 				echo "<script>alert('password salah Bro')</script>"; // ubah pake pop up bootstrap jika berkenan

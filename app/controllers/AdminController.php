@@ -55,4 +55,17 @@ class AdminController extends Controller
 		}
 	}
 
+	public function tambahUser()
+	{
+
+		if ($this->model('Admin')->tambahUser($_POST) > 0) {
+			echo "<script>alert('Berhasil Tambah Data User');
+			window.location.href = '".BASEURL."/admin/users';</script>";
+			exit;
+		}else{
+			echo "<script>alert('Gagal Tambah Data User');
+			window.location.href = '".BASEURL."/admin/users';</script>";
+		}
+	}
+
 }
