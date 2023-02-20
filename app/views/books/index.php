@@ -73,7 +73,7 @@
 						Lihat Detail..
 					</button>
 					<button class="btn btn-light" style="background-color: rgb(37,211,102); ">
-						<a href="https://api.whatsapp.com/send?phone=62<?= $b['no_telp']; ?>"
+						<a href="https://api.whatsapp.com/send?phone=62<?= substr($b['no_telp'], 1); ?>&text=Halo,%20Apakah%20Buku%20<?= $b['judul'] ?>%20Masih%20Tersedia?"
 							style="color: white; text-decoration: none;" target="blank">Chat Ke WA</a>
 					</button>
 				</div>
@@ -253,7 +253,7 @@ $(document).ready(function(){
 		$('#modal-detail .modal-body #judul').val(judul);
 		$('#modal-detail .modal-body #deskripsi').val(deskripsi);
 		$('#modal-detail .modal-body #cover').attr("src", '<?= BASEURL; ?>/img/'+cover);
-		$('#modal-detail .modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no);
+		$('#modal-detail .modal-footer #no a').attr("href", 'https://api.whatsapp.com/send?phone=62'+no+'&text=Halo,%20Apakah%20Buku%20'+judul+'%20Masih%20Tersedia?');
 	});
 });
 
