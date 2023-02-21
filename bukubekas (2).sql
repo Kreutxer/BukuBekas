@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Feb 2023 pada 08.51
+-- Waktu pembuatan: 21 Feb 2023 pada 07.53
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.1
 
@@ -41,14 +41,11 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `id_user`, `cover`, `judul`, `deskripsi`, `harga`) VALUES
-(13, 1, '63e6279b18a73.png', 'Mob Jemawa', 'Mob Sedang Jemawa', 191000),
-(16, 1, '63e47c0092952.png', 'Gon Anak Baik', 'asdasd', 190000),
-(18, 2, '63e4aacbaf691.png', 'Filosofi Teras', 'Apkah Kamu Ingin Mengakhiri Tugas Iini?', 150000),
-(37, 5, '63e657ca5c8cb.png', 'mamah gasuka yang aneh aneh', 'YUK beres Yuk\r\n', 150000),
-(38, 5, '63e6587bd939c.png', 'yuk bereskeun kakak', 'Saitama Gundul Asyik Juga NIch', 180000),
-(39, 5, '63e658d8bcae8.png', 'Mamah Aku Ingin Lulus tepat waktu', 'iya anakku akan kukabulkan permintaanmu', 120000),
-(40, 5, '63e47c0092952.png', 'Gon Anak Setan', 'asdasd', 100000),
-(42, 2, '63ee36147fe1c.jpeg', 'mamah berikan aku kekuatan', 'tolonglah diri ini', 1800000);
+(43, 2, '63f45b178cdba.jpeg', 'Struktur Data Seymour', 'Struktur Data Seymour Lipschutz biasanya dipakai sebagai pedoman mata kuliah struktur data ', 75000),
+(44, 2, '63f45bb0a9933.jpeg', 'HTML, CSS, javascript dasar', 'dipakai sebagai pedoman mata kuliah web dasar untuk mahasiswa teknik informatika', 45000),
+(45, 5, '63f45d470c767.jpeg', 'Algoritma & Struktur Data C++', 'Program dasar & struktur data menggunakan c++', 130000),
+(46, 5, '63f45ed952878.jpeg', 'Matematika 1', 'Berisi Soal Dan Pembahasan matematika dasar, biasanya dipakai sebagai pedoman mata kuliah kalkulus 1', 58000),
+(47, 5, '63f45f3f32b92.jpeg', 'Metode Statistika sudjana', 'Metode Statistika karya prof sudjana', 45000);
 
 -- --------------------------------------------------------
 
@@ -61,19 +58,6 @@ CREATE TABLE `favorit` (
   `id_user` int(5) DEFAULT NULL,
   `id_buku` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `favorit`
---
-
-INSERT INTO `favorit` (`id_favorit`, `id_user`, `id_buku`) VALUES
-(28, 2, 16),
-(40, 1, 37),
-(41, 1, 18),
-(42, 1, 39),
-(43, 1, 38),
-(44, 2, 37),
-(50, 2, 39);
 
 -- --------------------------------------------------------
 
@@ -95,10 +79,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `nama`, `password`, `no_telp`, `level`) VALUES
-(1, 'Arman', 'Achmad sumargo', '1232', '081222672843', 'admin'),
-(2, 'udin', 'yang pertama', '123', '081222672843', 'user'),
+(1, 'Arman', 'Achmad sumargo', '123', '081222672843', 'admin'),
+(2, 'udin', 'Sedunia', '123', '081222672843', 'user'),
 (4, '123', 'Achmad Juliarman', 'Rudi Berry', '081222672843', 'user'),
-(5, 'Papeng', 'Aldi Septiadi', '123', '081313477393', 'user'),
+(5, 'Papeng', 'Aldi Septiadi', '123', '081222672843', 'user'),
 (6, '123', 'maman', NULL, '081222672843', 'admin'),
 (7, 'maman', 'maman', '123', '081222672843', 'admin'),
 (8, 'aldi', 'aldi papeng bucitreuk', '123', '081222672843', 'user'),
@@ -138,7 +122,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_buku` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT untuk tabel `favorit`
