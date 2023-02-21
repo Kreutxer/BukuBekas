@@ -18,19 +18,19 @@
 
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example1q">Nama Lengkap</label>
-                <input type="text" id="form3Example1q" class="form-control" name="nama" />
+                <input type="text" id="form3Example1q" class="form-control" name="nama" required />
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example1q">Username </label>
-                <input type="text" id="form3Example1q" class="form-control" name="username" />
+                <input type="text" id="form3Example1q" class="form-control" name="username" required/>
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example1q">Password</label>
-                <input type="password" id="form3Example1q" class="form-control" name="pass" />
+                <input type="password" id="form3Example1q" class="form-control" name="pass" required/>
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example1q">Nomor WA</label>
-                <input type="number" id="form3Example1q" class="form-control" name="no" />
+                <input type="number" id="form3Example1q" class="form-control" name="no" required/>
               </div>
 
               <button type="submit" class="btn btn-primary btn-primary mb-1" name="register">Register</button>

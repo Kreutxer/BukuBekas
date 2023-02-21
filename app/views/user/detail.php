@@ -1,3 +1,4 @@
+<?php if ($_SESSION['level'] === 'user'): ?>
 <div class="container text-decoration-none" align="right">
 	<div class="container d-flex justify-content-between">
 		<a href="<?= BASEURL; ?>/books/favoritemu">
@@ -8,7 +9,7 @@
 		</a>
 	</div>
 
-	<div class="container d-flex justify-content-between">
+	<div class="container d-flex justify-content-between" style="">
 		<button class="btn btn-primary mt-1" style="width: 200px;" data-bs-toggle="modal"
 			data-bs-target="#modal-upload">Upload Buku</button>
 		<a href="<?= BASEURL; ?>/user/books">
@@ -18,6 +19,17 @@
 		</a>
 	</div>
 </div>
+<?php endif ?>
+<?php if ($_SESSION['level'] === 'admin'): ?>
+	<div class="container d-flex justify-content-between">
+		<a href="<?= BASEURL; ?>/admin/users">
+			<button class="btn btn-primary" style="width: 200px;">Lihat User</button>
+		</a>
+		<a href="<?= BASEURL; ?>/user/logout" onclick="confirm('Log Out ?')">
+			<button class="btn btn-danger" style="width: 200px;">Log Out</button>
+		</a>
+	</div>
+<?php endif ?>
 <div class="container shadow-sm p-3 mb-4 bg-white rounded mt-4" style="width: 800px;">
 	<!-- <?php var_dump($data['user']); ?> -->
 	<p style="font-size: 30px;">Biodata Anda</p>
@@ -108,7 +120,7 @@
 						name="id">
 					<div class="col-md-6">
 						<label for="judul" class="form-label">Judul</label>
-						<input type="text" class="form-control" id="judul" name="judul" required>
+						<input type="text" class="form-control" id="judul" name="judul" autocomplete="off" required>
 					</div>
 					<div class="col-md-6">
 						<label for="harga" class="form-label">Harga</label>
