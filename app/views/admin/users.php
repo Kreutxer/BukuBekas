@@ -78,14 +78,18 @@ if (!empty($_SESSION)) {
                       data-username="<?= $data['users'][$i]['username']; ?>"
                       data-no="<?= $data['users'][$i]['no_telp']; ?>"
                       data-pass="<?= $data['users'][$i]['password']; ?>"
-                      data-level="<?= $data['users'][$i]['level']; ?>">Ubah</button>
-                      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-hapus" id="hapus"
+                      data-level="<?= $data['users'][$i]['level']; ?>"
+                      style="
+                      <?php if($_SESSION['username'] === $data['users'][$i]['username']){echo "display: none;";} ?>">Ubah</button>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-hapus" id="hapus"
                       data-iduser="<?= $data['users'][$i]['id_user']; ?>"
                       data-nama="<?= $data['users'][$i]['nama']; ?>"
                       data-username="<?= $data['users'][$i]['username']; ?>"
                       data-no="<?= $data['users'][$i]['no_telp']; ?>"
                       data-pass="<?= $data['users'][$i]['password']; ?>"
-                      data-tabel="<?= $tabel ?>">Hapus</button>
+                      data-tabel="<?= $tabel ?>"
+                      style="
+                      <?php if($_SESSION['username'] === $data['users'][$i]['username']){echo "display: none;";} ?>">Hapus</button>
                     </td>
                     
                   </tr>
