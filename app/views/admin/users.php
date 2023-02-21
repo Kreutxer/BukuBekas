@@ -110,7 +110,7 @@ if (!empty($_SESSION)) {
       </div>
       <div class="modal-body">
       	<form action="<?= BASEURL; ?>/admin/ubahUser" method="post">
-      	<input type="hidden" name="password">
+      	<input type="hidden" name="password" id="password">
       	<div class="input-group flex-nowrap mt-2 mb-2">
 		  	<span class="input-group-text" id="addon-wrapping">ID USER </span>
 		  	<input type="text" class="form-control" id="id-user" name="id_user" readonly>

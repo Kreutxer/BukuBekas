@@ -1,4 +1,10 @@
+
 <div class="container">
+<?php 	
+if (empty($data['buku'])) {
+ 	echo "<h1>Kamu Belum Upload Buku Sama Sekali</h1>";
+ 	die();
+ } ?>
 <h1 class="mx-4">Buku Milik Anda : 
 	<?= $data['buku'][0]['nama']; ?>	
 </h1>
